@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Rotating Cube</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      
+      background-color:#f5d49b;
+    }
+    .nav { 
+	display:flex;
+ 	justify-content:end ;  
+	width:100% ;
+        height:5rem ; 
+        background-color:rgb(204, 164, 132);
+        color:white ; 
+      
+         }
+      ul { 
+         display:flex ;   
+         justify-content:center; 
+         align-items:center ;
+         margin-right:1rem;
+         text-decoration: none;
+          list-style: none;
+          font-size: 1.5rem;
+          
+        }
+        li { 
+          margin-right: 1rem;
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+          padding-left:1.3rem ;
+          padding-right: 1.3rem;
+          background-color:  rgb(151, 105, 79);
+          border-radius: 2rem;    
+
+        } 
+    .container{ 
+       display: flex ;
+       justify-content:center;
+       align-items: center ;
+       width:100% ;
+       height:90%; 
+         }	
+    .scene {
+      width: 200px;
+      height: 200px;
+      perspective: 1000px;
+    }
+
+    .cube {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transform: rotateX(30deg) rotateY(45deg);
+      animation: rotateCube 5s infinite linear;
+    }
+
+    .face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: black;
+      border: 1px solid #333;
+      opacity: 0.9;
+    }
+
+    .front  { transform: rotateY(0deg) translateZ(100px); }
+    .back   { transform: rotateY(180deg) translateZ(100px); }
+    .right  { transform: rotateY(90deg) translateZ(100px); }
+    .left   { transform: rotateY(-90deg) translateZ(100px); }
+    .top    { transform: rotateX(90deg) translateZ(100px); }
+    .bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+    @keyframes rotateCube {
+      0% { transform: rotateX(30deg) rotateY(45deg); }
+      100% { transform: rotateX(390deg) rotateY(405deg); }
+    }
+  </style>
+</head>
+<body>
+ <div class="nav">
+  
+<ul><li>about</li><li>partner</li><li>login</li></ul>
+</div>
+  <div class="container">
+  <div class="scene">
+    <div class="cube">
+      <div class="face front"></div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+  </div>
+ </div>
+</body>
+</html>
