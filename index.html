@@ -4,22 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>3D Rotating Cube</title>
+  <link rel="icon" href="image/cube.png" type="image/x-icon">
   <style>
-    body {
+  body {
       margin: 0;
       height: 100vh;
       
-      background-color:#f5d49b;
+        background-color:#f5d49b;
+       /* background-color: bisque;*/ 
+   /*	background:radial-gradient(ellipse at bottom ,#feffc6 0%,#f5d49b )*/
     }
     .nav { 
-	display:flex;
- 	justify-content:end ;  
-	width:100% ;
+	      display:flex;
+ 	      justify-content:end ;  
+	      width:100% ;
         height:5rem ; 
         background-color:rgb(204, 164, 132);
         color:white ; 
       
          }
+         .image_logo{ 
+
+          margin-right: auto;
+          margin-left: 3rem;
+          height: 100%;
+          
+         }
+
       ul { 
          display:flex ;   
          justify-content:center; 
@@ -45,7 +56,7 @@
        justify-content:center;
        align-items: center ;
        width:100% ;
-       height:90%; 
+       height:65%; 
          }	
     .scene {
       width: 200px;
@@ -82,14 +93,120 @@
       0% { transform: rotateX(30deg) rotateY(45deg); }
       100% { transform: rotateX(390deg) rotateY(405deg); }
     }
-  </style>
+    .container2 { 
+
+
+display: flex;
+justify-content: center;
+position: relative;
+
+}
+
+@keyframes rotate_cube { 
+
+0% { 
+
+ transform:    rotateX(0deg) rotateY(0deg)   ;
+
+}
+
+25%{ transform: translateX(-2rem) translateY(2rem) rotateX(60deg) rotateY(60deg) ;}
+
+50%{ 
+
+transform:  translateX(-2rem)  translateY(2rem)  rotateX(120deg) rotateY(120deg) ;
+
+}
+100% { 
+
+transform:    rotateX(360deg) rotateY(360deg)   ;
+
+}
+
+
+}
+.box{ 
+
+ perspective: 1000px;
+ width:10rem;
+ height:10rem;
+}
+
+.cubes{ 
+
+position: relative;
+/*  transform:    rotateX(30deg) rotateY(45deg) ;*/ 
+ transform-style: preserve-3d;      
+ animation: rotate_cube  3s    infinite  linear;  
+ transform-origin: center;
+}
+
+.faces{ 
+
+/*background-color:rgb(0,0,0,0.5) ;*/
+color:black;
+background-color: aliceblue;
+opacity: 0.5;
+position:absolute ;
+width: 10rem;
+height: 10rem;
+border:3px solid white;
+}
+
+.faces.face1{
+transform: rotateX(180deg);
+
+
+}
+.faces.face2{ 
+transform: translateZ(10rem) ;
+
+
+}
+.faces.face3{ 
+
+transform:  rotateY(90deg) translateZ(-5rem) translateX(-5rem);
+
+
+}
+.faces.face4 { 
+transform: translateX(5rem) translateZ(5rem) rotateY(-90deg);
+
+
+}
+.faces.face5{ 
+
+transform:translateY(5rem) translateZ(5rem) rotateX(-90deg);
+
+}
+
+.faces.face6{ 
+
+transform:translateY(-5rem) translateZ(5rem) rotateX(90deg);
+
+}
+
+</style>
 </head>
 <body>
  <div class="nav">
-  
+<img class="image_logo" src="image/3d-cube-transparent-png-4.png">
 <ul><li>about</li><li>partner</li><li>login</li></ul>
 </div>
+<h1 style=" text-align: center; margin-top: 5rem; font-size: 5rem; color: white ;">3D CUBE</h1>
   <div class="container">
+    <div class="container2">
+      <div class="box">
+      <div class="cubes"> 
+      <div  class="faces face1">face1</div>
+      <div class="faces face2">face2</div>
+      <div class="faces face3">face3</div>
+      <div class="faces face4">face4</div>
+      <div class="faces face5">face5</div>
+      <div class="faces face6">face6</div>
+       </div>
+       </div>
+       </div>   
   <div class="scene">
     <div class="cube">
       <div class="face front"></div>
